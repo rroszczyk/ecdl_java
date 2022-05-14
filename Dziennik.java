@@ -11,10 +11,10 @@ package net.roszczyk.dziennik;
  */
 public class Dziennik {
 
-    private int maxymalnaLiczbaOcen;
-    private int maxymalnaLiczbaUczniow;
-    private String[] przedmioty;
-    private int[][][] oceny;
+    private final int maxymalnaLiczbaOcen;
+    private final int maxymalnaLiczbaUczniow;
+    private final String[] przedmioty;
+    private final int[][][] oceny;
     
     public Dziennik(int liczbaUczniow, int liczbaOcen) { // konstruktor wywoływany tylko raz
         System.out.println("Inicjalizacja naszego dziennika szkolnego");
@@ -49,27 +49,34 @@ public class Dziennik {
         }
     }
     
-    public void wypiszOcenyZPrzedmiotu(int numerPrzedmiotu) {
+    public void wypiszOcenyZPrzedmiotu(int numerPrzedmiotu, float srednia) {
         //oceny[p][u][o] = 0;
         System.out.println("Oceny dla przedmiotu: " + przedmioty[numerPrzedmiotu - 1]);
         for (int u = 0; u < maxymalnaLiczbaUczniow; u++) {
-            System.out.print("" + (u + 1) + ": ");
+            String s = "" + (u + 1) + ": ";
             float sredniaOcenaUcznia = 0;
             int liczbaOcenUcznia = 0;
             for (int o = 0; o < maxymalnaLiczbaOcen; o++) {
                 int ocena = oceny[numerPrzedmiotu - 1][u][o];
                 if (ocena > 0) {
                     if (o > 0) {
-                        System.out.print(",");
+                        s += ",";
                     }
-                    System.out.print(ocena);
+                    s += ocena;
                     sredniaOcenaUcznia += ocena;
                     liczbaOcenUcznia++;
                 }
             }
             sredniaOcenaUcznia /= liczbaOcenUcznia;
-            System.out.println(" -> " + sredniaOcenaUcznia);
+            s += " -> " + sredniaOcenaUcznia;
+            if (sredniaOcenaUcznia <= srednia) {
+                System.out.println(s);
+            }
         }
+    }      
+    
+    public void wypiszOcenyZPrzedmiotu(int numerPrzedmiotu) {
+        wypiszOcenyZPrzedmiotu(numerPrzedmiotu, 6);
     }
     
     public void wypiszSredniaOceneZPrzedmiotu() {
@@ -107,7 +114,7 @@ public class Dziennik {
         }
        
         dziennik.wypiszOcenyZPrzedmiotu(1);
-        dziennik.wypiszOcenyZPrzedmiotu(3);
+        dziennik.wypiszOcenyZPrzedmiotu(3, 3);
         
         dziennik.wypiszSredniaOceneZPrzedmiotu();
     }
