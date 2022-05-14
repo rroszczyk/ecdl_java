@@ -80,16 +80,51 @@ public class Ecdl {
       
     }
     
+//    public static void main(String[] args) {
+//        int liczbaPrzedmiotow = 3;
+//        int liczbaOcen = 4;
+//        
+//        for (int pIndex = 0; pIndex < liczbaPrzedmiotow; pIndex++) {
+//            for (int oIndex = 0; oIndex < liczbaOcen; oIndex++) {
+//                
+//            }
+//        }
+//        
+//        for () {
+//            System.out.println("Twoja srednia ocen z przedmiotu x to: " );
+//        }
+//    }
+    
     public static void main(String[] args) {
+        Scanner inputScanner = new Scanner(System.in);        
         int liczbaPrzedmiotow = 3;
         int liczbaOcen = 4;
+        //int liczbaUczniow = 31;
+        
+        int[][] oceny;
+        //int[][][] dziennikSzkolny = new int[liczbaPrzedmiotow][liczbaUczniow][liczbaOcen];
+        
+        oceny = new int[liczbaPrzedmiotow][liczbaOcen];
         
         for (int pIndex = 0; pIndex < liczbaPrzedmiotow; pIndex++) {
             for (int oIndex = 0; oIndex < liczbaOcen; oIndex++) {
-                
+                System.out.print("Podaj ocenę numer " + (oIndex + 1) + " dla przedmiotu numer " + (pIndex + 1) + ": ");
+                oceny[pIndex][oIndex] = inputScanner.nextInt();
             }
-        }
+        }        
         
-        System.out.println("Twoja srednia ocen to: " );
-    }
+        float sredniaWszystkichOcen = 0;
+        for (int pIndex = 0; pIndex < liczbaPrzedmiotow; pIndex++) {
+            float sredniaPrzedmiotu = 0;
+            
+            for (int ocena : oceny[pIndex]) {
+                sredniaPrzedmiotu += ocena;
+            }
+            sredniaPrzedmiotu /= oceny[pIndex].length;
+            sredniaWszystkichOcen += sredniaPrzedmiotu;
+            System.out.println("Średnia ocen dla przedmiotu numer " + (pIndex + 1) + " wynosi: " + sredniaPrzedmiotu);
+        }        
+        sredniaWszystkichOcen /= oceny.length;
+        System.out.println("Średnia wszystkich ocen wynosi: " + sredniaWszystkichOcen);
+    }    
 }
