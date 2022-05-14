@@ -61,8 +61,7 @@ public class Ecdl {
         System.out.println("Twoje imię i nazwisko to: " + imie + " " + nazwisko);
     }
     
-    public static void main(String[] args) {
-
+    public static void srednieTemperatury() {
         double[] temperatury = new double[7];
         Scanner inputScanner = new Scanner(System.in);
 
@@ -78,5 +77,19 @@ public class Ecdl {
         }
         
         System.out.println("Średnia temperatura za siedem dni wynosi: " + (sumaTemperatur / temperatury.length));
+      
+    }
+    
+    public static void main(String[] args) {
+        int liczbaPrzedmiotow = 3;
+        int liczbaOcen = 4;
+        
+        for (int pIndex = 0; pIndex < liczbaPrzedmiotow; pIndex++) {
+            for (int oIndex = 0; oIndex < liczbaOcen; oIndex++) {
+                
+            }
+        }
+        
+        System.out.println("Twoja srednia ocen to: " );
     }
 }
