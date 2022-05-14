@@ -1,0 +1,82 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Project/Maven2/JavaApp/src/main/java/${packagePath}/${mainClassName}.java to edit this template
+ */
+
+package net.roszczyk.ecdl;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author roszczyr
+ */
+public class Ecdl {
+
+    public static void typyDanych() {
+        byte b1 = 10;       // zmienna b1 jest zmienną prostego typu byte
+        Byte b2 = 10;       // zmienna b2 jest zmianną typu obiektowego Byte
+        
+        System.out.println(b1);
+        System.out.println(b2);        
+        
+        b2 = Byte.parseByte("20");
+        
+        System.out.println(b2);       
+        
+        short s1 = 10;
+        Short s2 = Short.parseShort("100");
+
+        System.out.println(s1);
+        System.out.println(s2);                
+        
+        String napis = "jakiś napis";
+        
+        System.out.println(napis.toUpperCase());
+    }
+    
+    public static void temperatura(){
+        double temperatura = 0.0;
+        
+        Scanner inputScanner = new Scanner(System.in);
+        
+        System.out.print("Wprowadź temperaturę: ");
+        temperatura = inputScanner.nextDouble();
+        
+        System.out.println("Wprowadzona temperatura to: " + temperatura);        
+    }
+    
+    public static void przedstawSie(){
+        String imie;
+        String nazwisko;
+        
+        Scanner inputScanner = new Scanner(System.in);
+        
+        System.out.print("Wprowadź imię: ");
+        imie = inputScanner.next();
+
+        System.out.print("Wprowadź nazwisko: ");
+        nazwisko = inputScanner.next();
+
+        System.out.println("Twoje imię i nazwisko to: " + imie + " " + nazwisko);
+    }
+    
+    public static void main(String[] args) {
+
+        double[] temperatury = new double[7];
+        Scanner inputScanner = new Scanner(System.in);
+
+        for (int i = 0; i < temperatury.length; i++) {
+            System.out.print("Wprowadź temperaturę z " + i + " dnia: ");
+            temperatury[i] = inputScanner.nextDouble();
+        }
+        
+        double sumaTemperatur = 0.0;
+        
+        for (double temp : temperatury) {
+            sumaTemperatur += temp;
+        }
+        
+        System.out.println("Średnia temperatura za siedem dni wynosi: " + (sumaTemperatur / temperatury.length));
+    }
+}
