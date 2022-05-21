@@ -19,9 +19,27 @@ public class TShirt {
         this.manufacturer = manufacturer;
     }
 
+    public String getSizeString(TShirtSize size)
+    {
+        switch (size) {
+            case XS:
+                return "koszulka w rozmiarze ekstra małym";
+            case S:
+                return "koszulka w rozmiarze małym";                
+            case M:
+                return "koszulka w rozmiarze średnim";                
+            case L:
+                return "koszulka w rozmiarze dużym";                
+            case XL:
+                return "koszulka w rozmiarze ekstra dużym";                
+            default:
+                return "koszulka w rozmiarze nieznanym";
+        }
+    }
+    
     public static void main(String[] args) {
         TShirt shirt = new TShirt(TShirtSize.M, "Fruit Colour");
         
-        System.out.println(shirt.manufacturer + " rozmiar: " + shirt.size);
+        System.out.println(shirt.manufacturer + " rozmiar: " + shirt.getSizeString(shirt.size) + "(" + shirt.size + ")");
     }
 }
