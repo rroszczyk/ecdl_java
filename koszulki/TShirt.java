@@ -40,6 +40,14 @@ public class TShirt {
     public static void main(String[] args) {
         TShirt shirt = new TShirt(TShirtSize.M, "Fruit Colour");
         
-        System.out.println(shirt.manufacturer + " rozmiar: " + shirt.getSizeString(shirt.size) + "(" + shirt.size + ")");
+        System.out.print(shirt.manufacturer + " rozmiar: " + shirt.getSizeString(shirt.size) + " (" + shirt.size + ")");
+        System.out.println(" -> (" + shirt.size.getChestWidth() + "," + shirt.size.getShirtLength() + "," + shirt.size.getSleeveLength() + ")");
     }
 }
+
+/*
+
+Przygotuj klasę człowiek posiadającą pola imię, nazwisko, wiek, kolor oczu, kolor włosów
+kolor oczu oraz kolor włosów powinny być typami enum
+
+*/
