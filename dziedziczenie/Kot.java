@@ -8,7 +8,7 @@ package net.roszczyk.mavenproject6;
  *
  * @author roszczyr
  */
-public class Kot extends Zwierze implements Dzwiek {
+public class Kot extends Ssak implements Dzwiek {
     public Kot(String nazwa, int wiek) {
         super("kot", nazwa, wiek);
     }    

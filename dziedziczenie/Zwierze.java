@@ -10,6 +10,7 @@ package net.roszczyk.mavenproject6;
  */
 public class Zwierze {
     public String gatunek;
+    public String rodzaj;
     public int wiek;
     private final String nazwa;
     
@@ -18,6 +19,11 @@ public class Zwierze {
         this.nazwa = nazwa;
         this.wiek = wiek;
     }
+    
+//    public void setNazwa(String nazwa)
+//    {
+//        this.nazwa = nazwa;
+//    }
     
     public String getNazwa() {
         return gatunek + ": " + nazwa;                

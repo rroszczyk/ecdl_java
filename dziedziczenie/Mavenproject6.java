@@ -23,8 +23,28 @@ public class Mavenproject6 {
         
         for (Zwierze z:zwierzyniec) {
             Dzwiek dzwiek = (Dzwiek)z;
-            System.out.println(z.getNazwa() + " ma " + z.getWiek() + " lat");
-            System.out.println(dzwiek.getDzwiek());            
+            Ruch ruch = (Ruch)z;
+            System.out.println(z.rodzaj + ": " + z.getNazwa() + " ma " + z.getWiek() + " lat");           
+            System.out.println(z.gatunek + " wydaje dźwięk: " + dzwiek.getDzwiek() + " i " + ruch.RodzajRuchu());            
         }
     }
 }
+
+/*
+public interface Ruch {
+    void RodzajRuchu();
+}
+        
+public class Ssak extends Zwierze implements Ruch {
+    
+}
+
+public class Ryba extends Zwierze implements Ruch {
+    
+}
+
+public class Ptak extends Zwierze implements Ruch {
+    
+}
+
+*/

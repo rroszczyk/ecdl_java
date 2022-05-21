@@ -8,13 +8,6 @@ package net.roszczyk.mavenproject6;
  *
  * @author roszczyr
  */
-public class Kon extends Ssak implements Dzwiek {
-    public Kon(String nazwa, int wiek) {
-        super("kon", nazwa, wiek);
-    }    
-
-    @Override
-    public String getDzwiek() {
-        return "dźwięk paszczowy";
-    }
+public interface Ruch {
+    String RodzajRuchu();
 }

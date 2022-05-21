@@ -8,7 +8,7 @@ package net.roszczyk.mavenproject6;
  *
  * @author roszczyr
  */
-public class Pies extends Zwierze implements Dzwiek {
+public class Pies extends Ssak implements Dzwiek {
     public Pies(String nazwa, int wiek) {
         super("pies", nazwa, wiek);
     }
