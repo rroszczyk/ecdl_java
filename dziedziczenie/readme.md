@@ -1,7 +1,7 @@
 
 ```
 public interface Ruch {
-    void RodzajRuchu();
+    String RodzajRuchu();
 }
         
 public class Ssak extends Zwierze implements Ruch {
