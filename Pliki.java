@@ -9,6 +9,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.Scanner;
 
 /**
  *
@@ -19,7 +20,7 @@ public class Pliki {
     int liczba = 12345678;
     String napis = "Jakiś napis";
     
-    public void ZapisDoPliku()
+    public void zapisDoPliku()
     {
         FileWriter fileWriter = null;
         
@@ -44,7 +45,7 @@ public class Pliki {
         }
     }
     
-    public void OdczytZPliku()
+    public void odczytZPliku()
     {
         File file = new File(nazwaPliku);
         FileReader fileReader = null;
@@ -65,9 +66,77 @@ public class Pliki {
         System.out.println(wartosc);
     }
     
+    public String przedstawSie()
+    {
+        String imie;
+        
+        Scanner inputScanner = new Scanner(System.in);
+        
+        System.out.print("Wprowadź imię: ");
+        imie = inputScanner.next();
+
+        System.out.format("Witaj %s, będę o Tobie pamiętać", imie);
+        return imie;
+    }
+    
+    public void zapamietajImie(String plik, String imie)
+    {
+        FileWriter fileWriter = null;
+        
+        try {
+            fileWriter = new FileWriter(plik);
+            fileWriter.write(imie);
+        }
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        finally {
+            if (fileWriter != null) {
+                try {
+                    fileWriter.close();
+                }
+                catch (Exception e)
+                {
+                    System.out.println(e.getMessage());
+                }
+            }    
+        }       
+    }
+    
+    public void witaj()
+    {
+        BufferedReader bf = null;
+        String plikImie = "imie.txt";
+        
+        try {
+            bf = new BufferedReader(new FileReader(new File(plikImie)));
+            String imieZPliku = bf.readLine();
+            bf.close();
+            System.out.format("Witaj ponownie %s!%n", imieZPliku);
+        }
+        catch (Exception e)
+        {
+            System.out.println("Nie znam Cię");
+            String imie = przedstawSie();
+            zapamietajImie(plikImie, imie);
+        }
+        finally {
+            try {
+                if (bf != null) {
+                    bf.close();
+                }
+            } 
+            catch (Exception e)
+            {
+                System.err.println(e.getMessage());
+            }
+        }
+    }
+    
     public static void main(String[] args) {
         Pliki pliki = new Pliki();
-        pliki.ZapisDoPliku();
-        pliki.OdczytZPliku();                
+        pliki.zapisDoPliku();
+        pliki.odczytZPliku();                       
+        pliki.witaj();
     }
 }
